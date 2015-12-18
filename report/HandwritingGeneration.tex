@@ -57,18 +57,65 @@ We will first discuss the techniques we uses to collect and format data, and the
  %  * Sec 6: References
 
 \section{Introduction}
-introduce the problem you want to solve, expain why it is important to solve it; and indicate the method you used to solve it. add a concept figure showing the overall idea behind the method you are presenting. 
+
+% introduce the problem you want to solve, expain why it is important to solve it; and indicate the method you used to solve it. add a concept figure showing the overall idea behind the method you are presenting. 
 \section{Previous work}
-\subsection{Handwriting recognition}
-\subsection{Handwriting}
+\subsection{Handwriting recognition} % Review of previous work (i.e. previous methods that have explored a similar problem)
+\subsection{Handwriting generation} % Say why your method is better than previous work; and/or summarize the key main contributions of your work;
+
+There have been plenty of ways to approach the problem of handwriting synthesis. 
+
 
 \section{Technical details}
 \subsection{Handwriting recognition}
 \subsection{Handwriting generation}
 
 \section{Experiments}
+\subsection{Data collection}
+\subsection{Handwriting recognition}
+\subsection{Handwriting generation}
+
+The methods we will be using include handwriting recognition and Recurrent Neural Networks for sequence prediction. There are various languages involved. 
+
+The workflow looks like this: 
+First we collected trace of pen stroke using a tracking pad and screencast. Then we used the handwriting recognition technology to generate the contents of handwriting. With the data collected we trained a Recurrent Neural Network, which is later used for handwriting generation. 
+
+
+After we collected and formatted the data, we use the data to train a recurrent neural network. The idea of RNN is to encode sequential correlation of ordered data points, in our case, the pen stroke data introduced earlier. The input and output variable will be the same sequence, excepted they are offsetted by one timestamp to make prediction possible. By training the recurrent neural network we are basically telling the program how to write. 
+
+
+Instead of implementing the algorithms ourselves, we are using an off-the-shelf library we found online, rnnlib, which is written in C++. 
+
+
+The architecture looks like this: 
+The white dots are the input sequence, the black dots are the hidden layers, which are the essential part of any neural network architecture to store complex non-linear correlation. The grey dots are the output. 
+
+
+The training of the network took longer time than we thought. Each epoch is taking 30 hours or so, and we only managed to run 7 epochs. So the network is not yet well trained. Nevertheless it’s giving us eligible results. Here are two examples: 
+
+
+Hello, it’s me: 
+I think it’s fair to say it’s doing its job. 
+If we look carefully, we can see the ‘e’ at the end was not finished. That is because the end of stroke flag appeared too soon. The network predicted 
+
+
+And I am your father.  
+It is not so ideal, but at least we can tell the letters apart. 
+
+
+
+
 
 \section{Conclusions}
+Something about the power of rnn. Why it captures the patterns of penstroke. 
+
+There are a few ways we can improve the project. 
+To give the training a little more time
+The rnn library we are using is not optimized for multiprocessors, or gpu, so we can improve on their code. 
+We might also want to improve the architecture of the neural networks, and if that succeeds we will be famous. 
+
+
+
 
 \subsubsection*{References}
 
