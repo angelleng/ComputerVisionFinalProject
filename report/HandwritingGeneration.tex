@@ -140,7 +140,7 @@ As mentioned, this video input needs to be processed and converted to a formatte
 
 Neural networks (NN) are know to do a good job in capturing complex, non-linear connections between input and output. A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior. Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs. This makes them applicable to tasks such as unsegmented connected handwriting recognition or speech recognition. 
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale = 0.3]{deep_predictor.pdf}
 \caption{\textbf{Deep recurrent neural network prediction architecture.} The circles represent network layers, the solid lines represent weighted connections
@@ -216,9 +216,7 @@ After we collected and formatted the data, we use the data to train a recurrent 
 Using the well-implemented c++ library rnnlib, we were able to train an RNN that takes in the sequential data of the pen stroke, which is then used for making predictions about handwriting, i.e. handwriting generation. The training of the network took longer time than we thought. Each epoch is taking 30 hours or so, and we only managed to run 7 epochs. The training error was still dropping when we stop the training process early because of time issues, so the network is not yet well trained. Nevertheless it’s giving us eligible results. 
 
 Here are two examples: 
-
-Hello, it’s me: 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale = 0.5]{hello.png}
 \end{center}
@@ -226,7 +224,7 @@ Hello, it’s me:
 \caption{"hello, it's me"}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale = 0.5]{father.png}
 \end{center}
@@ -243,8 +241,6 @@ There are a few ways we can improve the project.
 To give the training a little more time
 The rnn library we are using is not optimized for multiprocessors, or gpu, so we can improve on their code. 
 We might also want to improve the architecture of the neural networks, and if that succeeds we will be famous. 
-
-
 
 
 \subsubsection*{References}
