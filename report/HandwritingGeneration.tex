@@ -31,7 +31,7 @@
 }
 
 
-\title{Handwriting Generation with Recurrent Neural Netoworks}
+\title{Handwriting Generation with Recurrent Neural Networks}
 
 
 \author{
@@ -99,6 +99,16 @@ Creation of a realistic font is most efficiently done through the process of mac
 % introduce the problem you want to solve, expain why it is important to solve it; and indicate the method you used to solve it. add a concept figure showing the overall idea behind the method you are presenting. 
 \section{Previous work}
 \subsection{Handwriting recognition} % Review of previous work (i.e. previous methods that have explored a similar problem)
+Recognizing handwriting from an image poses several problems and is no simple task. The most important obstacle is that there is a significant amount of variation within classes, as you can see below, there are several different ways the letters "A" and "Z" can be handwritten.
+\begin{center}
+\includegraphics[scale = 0.25]{A.jpg}
+\includegraphics[scale = 0.25]{Z.jpg}
+\end{center}
+The MATLAB OCR function in the Computer Vision toolbox works extremely well with recognizing typed text in an image, as shown below.
+\begin{center}
+\includegraphics[scale = 0.4]{RecognizeTextWithinAnImageExample_01.png}
+\end{center}
+However, the OCR function works very poorly with actual handwriting recognition, making it unsuitable for this project. The method we implemented is similar to the paper "Optical Character Recognition for Handwritten Hindi". This paper recognizes hindi text by using Histogram of Oriented Gradient (HOG) Features with three different classifiers: Naive Bayes, Support Vector Machines, and Adaboost. The Support Vector Machines gave the highest test accuracy (1.2 percent misclassification rate), so we decided to use the SVM classifier for our method.
 \subsection{Handwriting generation} % Say why your method is better than previous work; and/or summarize the key main contributions of your work;
 There have been plenty of ways to approach the problem of handwriting synthesis. They can be categorized into Perturbation-based techniques, Fusion-based generation, and Model-based generation. 
 Perturbation-based techniques generate new samples by
@@ -136,6 +146,18 @@ To capture the user’s handwriting in real time we chose to utilize the accessi
 As mentioned, this video input needs to be processed and converted to a formatted data file. To accomplish this we utilized the video processing capabilities of Matlab’s videoReader functionality. Employing frame by frame comparisons to detect pixel discrepancies, a competently accurate representation of the handwriting is exported to an excel document in all necessary variables. With this data in its appropriate format, the last frame of the video is used as input to another portion of our software to recognize the handwriting and construct a text file to pair with the output of data collection.
 
 \subsection{Handwriting recognition}
+
+In order to use the Histogram of Oriented Gradients (HOG) Features and Support Vector Machine Classifier (SVM), we needed a large dataset which contained images of handwritten letters. The UCI Machine Learning Repository had sample penstroke data from 60 different writers, each ASCII character as well as a few spanish characters were included in the dataset. We only used the uppercase and lowercase letters of the English alphabet, and converted the penstroke data into $120\times 120$ pixel images for each letter. This gave us a training set of 60 $120\times 120$ pixel images for each letter.
+
+On each of the images of the training set, we found the HOG features using a window size of 20, and input these into an SVM in order to get a classifier. The visualization of the HOG features is shown in the image below. The window size of 20 gave adequate information on the shape of each letter while still providing a reasonable runtime. 
+\begin{center}
+\includegraphics[scale = 0.25]{B1.jpg}
+\includegraphics[scale = 0.25]{B1hog.jpg}
+\end{center}
+On any new image, the MATLAB function \textbf{improps} was used to separate letters, then our classification was used on each separate letter.
+\begin{center}
+\includegraphics[scale = 0.5]{boxexample2.jpg}
+\end{center}
 \subsection{Handwriting generation}
 
 Neural networks (NN) are know to do a good job in capturing complex, non-linear connections between input and output. A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior. Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs. This makes them applicable to tasks such as unsegmented connected handwriting recognition or speech recognition. 
@@ -208,6 +230,16 @@ At the completion of the video processing there should be two accessible outputs
 
 
 \subsection{Handwriting recognition}
+As discussed in Section 3.2, letters were separated using the \textbf{improps} MATLAB function, and our SVM classifier was used on each separate letter. The results were extremely accurate on typed text, as shown below (green=correct classification was made, red=incorrect classification was made).
+\begin{center}
+\includegraphics[scale = 0.5]{alowerignore.jpg}
+\includegraphics[scale = 0.5]{aupperignore.jpg}
+\end{center}
+However, there was still a very high misclassification rate on handwritten text (30 percent). As you can see below, several letters are still being misclassified. While this is a fairly good handwriting recognizer, it still causes a huge problem in our project, since some of the letters from the "Hello World" example from Section 3.1 will be misclassified, the error will propogate to the handwriting generator, as dicussed in the following section.
+\includegraphics[scale = 0.5]{alowerwrittenignore.jpg}
+\begin{center}
+\includegraphics[scale = 0.5]{HelloWorldwrittenbox.jpg}
+\end{center}
 \subsection{Handwriting generation}
 First we collected trace of pen stroke using a tracking pad and screencast. Then we used the handwriting recognition technology to generate the contents of handwriting. With the data collected we trained a Recurrent Neural Network, which is later used for handwriting generation. 
 
@@ -264,7 +296,8 @@ in rat hippocampal region CA3. {\it Journal of Neuroscience}
 [4] Vincent, N., Seropian, A., Stamon, G.: Synthesis for handwriting
 analysis. Pattern Recognit. Lett. 26(3), 267–275 (2005)
 
-
+[5] Goyal, A., Khandelwal, K., Keshri, P., (2010) "Optical Character Recognition
+ for Handwritten Hindi". Stanford, CA.
 
 Below is not part of the report
 
