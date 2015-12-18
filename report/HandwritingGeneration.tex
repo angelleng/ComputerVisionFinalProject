@@ -66,7 +66,7 @@ University of Michigan \\
 \maketitle
 
 \begin{abstract}
-In this report we talk about using recurrent neural networks to generate data that resemble human's handwriting. There have been various methods proposed to make machines mimick handwriting, how we approach this problem in this project is to use Long Short-term Memory recurrent neural networks to make prediction about sequential data. In collection of data, we used handwriting recognition algorithms to link handwriting with their content. The experiments we did produced satisfactory results. The algorithm produces eligible handwriting with a given line of text. 
+In this report we talk about using recurrent neural networks to generate a font that resembles human handwriting. There have been various methods proposed to make machines mimick handwriting in previous research however we chose to approach this problem through the use of Long Short-term Memory recurrent neural networks to make predictions dealing with sequential data. To collect data, we employed video processing software and then used handwriting recognition algorithms on an image of the handwriting to link it with its print-text equivalent. As you will see, the experiments we completed produced satisfactory results in the sense that our algorithm produces an eligible handwriting font for a given input. 
 
 \end{abstract}
 
@@ -84,11 +84,12 @@ In this report we talk about using recurrent neural networks to generate data th
 
 \section{Introduction}
 
-Optical character recognition (OCR) is a widely used form of human-computer interaction that can be seen in society today. It is the conversion of images of typed or printed text into machine-encoded text often used for data entry, text-to-speech, and text mining. In this project we will be be implementing Intelligent Character Recognition (ICR) software that has the capability to take OCR to the next level and recognize handwritten text one character at a time. All done with the intention of using this recognition to construct a unique and accurate handwriting font tailored to input to grant out users the ability to add a personal touch to the banal style of standard electronic fonts.
+Optical character recognition (OCR) is a widely used form of human-computer interaction that can be seen in society today. It is the conversion of images of typed or printed text into machine-encoded text often used for data entry, text-to-speech, and text mining. In this project we have implemented Intelligent Character Recognition (ICR) software that has the capability to take OCR to the next level and recognize handwritten text one character at a time. This is all done with the intention of using handwriting recognition to construct an exclusive and accurate handwriting font tailored to unique input in order to grant out users the ability to add a personal touch to the banal style of standard electronic fonts.
 
-This ‘real world’ input will be seamlessly fed to our software through the utilization of the “Wacom Intus Draw Tablet \& Stylus” here on the University of Michigan campus. This tablet grants us the capability to track dynamic motion in real-time as our users input their handwriting, which we will use to construct a data set and recreate the handwriting to a digital picture. It is at this point that we will use handwriting recognition software to analyze the handwriting to generate a text file of matching text and feed these two correlated inputs to the rest of our software to begin creating a realistic font simply off a sample of our user’s handwriting. 
+This complex input will be seamlessly fed to our software through the utilization of the “Wacom Intuos Draw Tablet & Stylus” here on the University of Michigan campus. The “Wacom Intous Draw Tablet” grants¬ the capability to track dynamic motion of the pen tip in real-time as our users input their handwriting, which will be used to construct a data set and recreate the handwriting to a digital image. It is at this point that the handwriting recognition software can be used to analyze the handwriting and generate a text file of matching text ultimately feeding these two correlated inputs to the rest of our software to begin creating a realistic font simply off a sample of our user’s handwriting. 
 
-Creation of a realistic font is most efficiently done through the process of machine learning in which the computer trains a model from extensive input to make data-driven predictions or decisions rather than following strictly static program instructions. With the ability to process and store handwritten text by comparison between scanned text and learned text, our software will ultimately construct a font that is unique to the handwriting input to be used for future use on the system. A requisite for a font to resemble actual handwriting is that each letter must be displayed uniquely each time it is used, and it’s size and shape will depend on the values of surrounding letters. Conclusively, this project will provide us with useful experience in the practice of video processing, handwriting recognition, and machine learning using video as input to create a unique tool to use in a vast variety of circumstances.
+Creation of a realistic font is most efficiently done through the process of machine learning in which the computer trains a model from extensive previous input to make data-driven decisions (i.e. predictions) rather than following strictly static program instructions. With the ability to process and store handwritten text by comparison between scanned text and learned text, our software will ultimately construct a font that is particular to the handwriting input to be used for future use on the system. A requisite for a font to resemble actual handwriting is that each letter must be displayed diversely each time it is used, and it’s size and shape will depend on the values of surrounding letters. Conclusively, this project has provided us with useful experience in the practice of video processing, handwriting recognition, and machine learning using video as input to create a unique tool to use in a vast variety of circumstances. A concept figure illustrating the method described is shown below.
+
 	%insert picture of method
 \begin{center}
 \includegraphics[scale = 0.5]{Method.png}
@@ -136,14 +137,15 @@ often be challenging to implement due to the large number
 of samples they require. Models resulting from
 these techniques can also be utilized in recognition systems. 
 
+
 \section{Technical details}
 \subsection{Data Collection}
 
-The first step to our software process is for our user to input their handwriting. We need to process this input in real time in order to gather sufficient data of where the pen tip is at all times while it is writing and an indication of when it is picked up. This will ensure that with the help of our trained machine, the font we generate is realistic in the sense of all inconsistencies that normal handwriting possesses. Therefore we set out to obtain ∆x and ∆y of the pen-tip corresponding to its timestamp and when the pen is lifted so that the next ∆x \& ∆y pair that you will see will be the initial point of a new stroke. 
+The first step to our software process is for our user to input their handwriting. We need to process this input in real time in order to gather sufficient data of where the pen tip is at all times while it is writing and an indication of when it is picked up. This will ensure that with the help of our trained machine, the font we generate is realistic in the sense of all inconsistencies that normal handwriting possesses. Therefore we set out to obtain ∆x and ∆y of the pen-tip corresponding to its timestamp and when the pen is lifted so that the next ∆x & ∆y pair that you will see will be the initial point of a new stroke. 
 
-To capture the user’s handwriting in real time we chose to utilize the accessible and accurate “Wacom Intus Draw Tablet \& Stylus” available on North Campus, with Adobe Photoshop. With a blank canvas open and pen selected, the user uses the stylus to write out a phrase and with Apple QuickTime Player’s built in screen capture we obtain a video of the handwriting phrase frame by frame as it is written. The input to the initial stage of our software has thus been obtained. 
+To capture the user’s handwriting we chose to utilize the accessible and accurate “Wacom Intuos Draw Tablet & Stylus” available on North Campus, with Adobe Photoshop. After opening a blank canvas and selecting the pen tool, the individual uses the stylus to write out a phrase and with Apple QuickTime Player’s built in screen capture we obtain a video of the handwriting phrase frame by frame as it is written. The input to be used by the initial stage of our software has thus been obtained. 
 
-As mentioned, this video input needs to be processed and converted to a formatted data file. To accomplish this we utilized the video processing capabilities of Matlab’s videoReader functionality. Employing frame by frame comparisons to detect pixel discrepancies, a competently accurate representation of the handwriting is exported to an excel document in all necessary variables. With this data in its appropriate format, the last frame of the video is used as input to another portion of our software to recognize the handwriting and construct a text file to pair with the output of data collection.
+As mentioned, this video needs to be processed and converted to a formatted data file. To accomplish this we utilized the video processing capabilities of Matlab’s videoReader functionality. Employing frame by frame comparisons to detect pixel discrepancies, a competently accurate representation of the handwriting is exported to an excel document in all necessary variables. With this data in its appropriate format, the last frame of the video is used as image input to another portion of our software to recognize the handwriting and construct a text file to pair with the output of data collection.
 
 \subsection{Handwriting recognition}
 
@@ -198,7 +200,7 @@ The Long short-term memory (LSTM) network, developed by Hochreiter \& Schmidhube
 
 That is how the network is built. 
 
-In this project, the data are the sequence 
+In this project, the data is the sequence 
 
 To enable the network to make prediction about a sequence, the output sequence is used as a parameter of the probability distribution $\Pr(x_{t+1}|y_t)$ of the next input. The form of distribution should be selected carefully to give high performing prediction. 
 
@@ -212,13 +214,13 @@ The probability given by the network to the input sequence x is
 \section{Experiments}
 \subsection{Data collection}
 
-As discussed in Section 3.1, the input to be translated to collected data is in video format and is processed by detecting pixel discrepancies between each frame. An example of detected pixel discrepancies is shown below where detected discrepancies between a frame range were highlighted to show accuracy in the construction of the letter ‘H.’ Note that the cursor does not interfere with detection due to disregard of pixels that have been accurately identified as pixels changed due to cursor for every iteration/frame.
+As discussed in Section 3.1, the input to be translated to collected data is in video format and is processed by detecting pixel discrepancies between each frame. An example of detected pixel discrepancies is shown below where detected discrepancies between a frame range was highlighted to show accuracy in the construction of the letter ‘H.’ Note that the cursor does not interfere with detection due to disregard of pixels that have been accurately identified as pixels changed due to cursor for every iteration/frame.
 %insert picture of 'detection data'
 \begin{center}
 \includegraphics[scale = 0.4]{detection_data.png}
 \end{center}
 
-At the completion of the video processing there should be two accessible outputs for use later in software. The first is the last frame of the handwriting input and the second is the formatted data. Examples of these are shown below.
+At the completion of the video processing there should be two accessible outputs for use later in software. The first is the last frame of the handwriting input and the second is the formatted data. Examples of these are shown below. 
 %insert picture of 'Hello World'
 \begin{center}
 \includegraphics[scale = 0.2]{Hello_world.png}
@@ -241,11 +243,12 @@ However, there was still a very high misclassification rate on handwritten text 
 \includegraphics[scale = 0.5]{HelloWorldwrittenbox.jpg}
 \end{center}
 \subsection{Handwriting generation}
-First we collected trace of pen stroke using a tracking pad and screencast. Then we used the handwriting recognition technology to generate the contents of handwriting. With the data collected we trained a Recurrent Neural Network, which is later used for handwriting generation. 
+First we collected a trace of the pen stroke using a tracking pad and screen capture. Then we used the handwriting recognition technology to generate the contents of handwriting. With the data collected we trained a Recurrent Neural Network, which is later used for handwriting generation. 
 
-After we collected and formatted the data, we use the data to train a recurrent neural network. The idea of RNN is to encode sequential correlation of ordered data points, in our case, the pen stroke data introduced earlier. The input and output variable will be the same sequence, excepted they are offsetted by one timestamp to make prediction possible. By training the recurrent neural network we are basically telling the program how to write. 
+After we collected and formatted the data, we use the data to train a recurrent neural network. The idea of RNN is to encode sequential correlation of ordered data points, in our case, the pen stroke data introduced earlier. The input and output variable will be the same sequence, except they are offsetted by one timestamp to make prediction possible. By training the recurrent neural network we are basically telling the program how to write. 
 
-Using the well-implemented c++ library rnnlib, we were able to train an RNN that takes in the sequential data of the pen stroke, which is then used for making predictions about handwriting, i.e. handwriting generation. The training of the network took longer time than we thought. Each epoch is taking 30 hours or so, and we only managed to run 7 epochs. The training error was still dropping when we stop the training process early because of time issues, so the network is not yet well trained. Nevertheless it’s giving us eligible results. 
+Using the well-implemented C++ library rnnlib, we were able to train an RNN that takes in the sequential data of the pen stroke, which is then used for making predictions about handwriting, i.e. handwriting generation. The training of the network took longer than we thought. Each epoch takes 30 hours or so, and therefore we only managed to run 7 epochs. The training error was still dropping when we stop the training process early because of time issues, so the network is not yet well trained. Nevertheless it has given us eligible results. 
+
 
 Here are two examples: 
 \begin{figure}[h]
@@ -267,13 +270,7 @@ Here are two examples:
 \fref{hello}, which says "hello, it's me", is very legible, and looks like a sensible handwriting version of the text. Looking closely, we can see the ‘e’ at the end was not finished. That is because the end of stroke flag appeared too soon. In another case where the algorithm did not do so well, \fref{father} is less handwriting-like, and less legible.  
 
 \section{Conclusions}
-In this project, Long Short-Term Memory recurrent neural networks have displayed a strong ability in making prediction about human handwriting sequence. Though not reaching its full potential, the RNN we trained is able to generate convicing handwriting data. 
-
-There are a few ways we can improve the project. 
-To give the training a little more time
-The rnn library we are using is not optimized for multiprocessors, or gpu, so we can improve on their code. 
-We might also want to improve the architecture of the neural networks, and if that succeeds we will be famous. 
-
+In this project, Long Short-Term Memory recurrent neural networks have displayed a strong ability in making predictions about human handwriting sequence. Although it did not reach its full potential, the RNN we trained is able to generate convincing handwriting data as expressed in our experimental data above. There are a few ways we could improve the project, however. A simple improvement given more time would be to train the network more to improve our output. Additionally, we have come to realize that the rnn library we are using is not optimized for multiprocessors, or gpu, so a strive to improving on their code would go a long way. And finally if we really dove into this project we could also try to improve the architecture of the neural networks, however if that succeeded we would be famous. All in all, this project has given us great insight to video processing, handwriting recognition, and machine learning all contributing to a better understanding of computer vision and the frontier of discovery and improvement that it proposes. 
 
 \subsubsection*{References}
 
