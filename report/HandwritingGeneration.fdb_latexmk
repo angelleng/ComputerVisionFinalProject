@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1450436369 "HandwritingGeneration.tex" "HandwritingGeneration.pdf" "HandwritingGeneration" 1450436372
+["pdflatex"] 1450437796 "HandwritingGeneration.tex" "HandwritingGeneration.pdf" "HandwritingGeneration" 1450437799
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -107,13 +107,16 @@
   "/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1401025944 1445653 26a0aacf3d70032b1ec192e8c7792117 ""
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1401025990 3832012 904d82bdcc8abf2b1cd296990b82553b ""
   "/usr/local/texlive/2014/texmf.cnf" 1401025936 577 a59edbde8d3a8c549d0eeaab1739e2ff ""
-  "HandwritingGeneration.aux" 1450436372 4498 a0002bd4e97452fd73ab3fc2a4c8962a ""
-  "HandwritingGeneration.out" 1450436372 1724 3c03466b6ad4c258aab7ce3d2fcfefd4 ""
-  "HandwritingGeneration.tex" 1450436363 28825 19203d32068b8a32e5398f684337a90a ""
+  "Collected_Data.png" 1450437264 77292 c5125f680ba87f3536cf93b6f945b950 ""
+  "HandwritingGeneration.aux" 1450437799 4596 5a4bc9cb72bdb7d6008afba4f593f783 ""
+  "HandwritingGeneration.out" 1450437799 1789 d51738062919368b0570ca3232a0e833 ""
+  "HandwritingGeneration.tex" 1450437793 34052 2701226ea3b6235c8a42a922b8a9ee98 ""
+  "Hello_world.png" 1450437264 44586 5282a7bcc67e6e68f4775cfd0a56f1ba ""
   "deep_predictor.pdf" 1450430150 32750 25535658f14423e1a686336797745a2b ""
+  "detection_data.png" 1450437264 22972 c33f4312104f77a6ac0927e858174284 ""
   "nips15submit_e.sty" 1450316399 8804 cee4cb76ce9b6e282137062c87041468 ""
   (generated)
-  "HandwritingGeneration.pdf"
   "HandwritingGeneration.log"
-  "HandwritingGeneration.aux"
   "HandwritingGeneration.out"
+  "HandwritingGeneration.aux"
+  "HandwritingGeneration.pdf"
