@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1450398191 "HandwritingGeneration.tex" "HandwritingGeneration.pdf" "HandwritingGeneration" 1450398193
+["pdflatex"] 1450409364 "HandwritingGeneration.tex" "HandwritingGeneration.pdf" "HandwritingGeneration" 1450409366
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -20,9 +20,9 @@
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1136768653 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
-  "/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
-  "/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
-  "/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb" 1248133631 36094 798f80770b3b148ceedd006d487db67c ""
+  "/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
+  "/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb" 1136849748 45758 19968a0990191524e34e1994d4a31cb6 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/local/texlive/2014/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
@@ -67,12 +67,12 @@
   "/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1401025944 1445653 26a0aacf3d70032b1ec192e8c7792117 ""
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1401025990 3832012 904d82bdcc8abf2b1cd296990b82553b ""
   "/usr/local/texlive/2014/texmf.cnf" 1401025936 577 a59edbde8d3a8c549d0eeaab1739e2ff ""
-  "HandwritingGeneration.aux" 1450398193 2658 51fe2b8f2c481767079dca66db7dd7ea ""
-  "HandwritingGeneration.out" 1450398193 976 27e41d45b93d71c088877d2c55202435 ""
-  "HandwritingGeneration.tex" 1450316429 17795 031c560c40a3655b151013934042e506 ""
+  "HandwritingGeneration.aux" 1450409366 3504 08ea8e1c3868ae052128a8652eb0910a ""
+  "HandwritingGeneration.out" 1450409366 1503 461a53fd50e81eaf70d81036160baa76 ""
+  "HandwritingGeneration.tex" 1450409360 19866 fd74cfd6cf1ddaafabcd88058643658c ""
   "nips15submit_e.sty" 1450316399 8804 cee4cb76ce9b6e282137062c87041468 ""
   (generated)
+  "HandwritingGeneration.log"
   "HandwritingGeneration.out"
   "HandwritingGeneration.pdf"
-  "HandwritingGeneration.log"
   "HandwritingGeneration.aux"
