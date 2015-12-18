@@ -57,6 +57,14 @@ INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/hpdftex.def
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/hpdftex.def
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
 INPUT HandwritingGeneration.aux
 INPUT HandwritingGeneration.aux
 OUTPUT HandwritingGeneration.aux
@@ -77,6 +85,12 @@ OUTPUT HandwritingGeneration.pdf
 INPUT ./HandwritingGeneration.out
 INPUT ./HandwritingGeneration.out
 OUTPUT HandwritingGeneration.out
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
@@ -96,6 +110,9 @@ INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT deep_predictor.pdf
+INPUT ./deep_predictor.pdf
+INPUT ./deep_predictor.pdf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
@@ -106,7 +123,6 @@ INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
-INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
@@ -115,9 +131,10 @@ INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/omsptm.fd

@@ -2,7 +2,25 @@
 \usepackage{nips15submit_e,times}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{graphicx}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
+
+
+\newcommand{\figdir}{}
+\newcommand{\capt}[2]{\caption[#1]{\textbf{#1}#2}}
+\newcommand{\qcapt}[1]{\capt{#1}{}}
+\newcommand{\figheadingnospace}[1]{\center{\textbf{#1}}}
+\newcommand{\figheading}[1]{\figheadingnospace{#1}\vspace{3mm}}
+\newcommand{\fig}[5]
+{
+\begin{figure}
+\begin{center}
+\includegraphics[width=#3\columnwidth]{\figdir#1}
+\end{center}
+\capt{#4}{#5}
+\flabel{#2}
+\end{figure}
+}
 
 
 \title{Handwriting Generation with Recurrent Neural Netoworks}
@@ -40,8 +58,8 @@ University of Michigan \\
 \maketitle
 
 \begin{abstract}
-In this report we talk about using recurrent neural networks to generate data that resemble human's handwriting. We will first review some 
-We will first discuss the techniques we uses to collect and format data, and then we will 
+In this report we talk about using recurrent neural networks to generate data that resemble human's handwriting. There have been various methods proposed to make machines mimick handwriting, how we approach this problem in this project is to use Long Short-term Memory recurrent neural networks to make prediction about sequential data. In collection of data, we used handwriting recognition algorithms to link handwriting with their content. The experiments we did produced satisfactory results. The algorithm produces eligible handwriting with a given line of text. 
+
 \end{abstract}
 
  % * Sec 1. Introduction: introduce the problem you want to solve, expain why it is important to solve it; and indicate the method 
@@ -62,19 +80,54 @@ We will first discuss the techniques we uses to collect and format data, and the
 \section{Previous work}
 \subsection{Handwriting recognition} % Review of previous work (i.e. previous methods that have explored a similar problem)
 \subsection{Handwriting generation} % Say why your method is better than previous work; and/or summarize the key main contributions of your work;
+There have been plenty of ways to approach the problem of handwriting synthesis. They can be categorized into Perturbation-based techniques, Fusion-based generation, and Model-based generation. 
+Perturbation-based techniques generate new samples by
+altering geometric features such as the size, thickness, and
+slant of a given sample. Perturbation-based operations can
+be seen as the inverse of the preprocessing steps employed
+in text recognition. Perturbation-based techniques are easy
+to apply, but the results may be unnatural due to random and
+non-calibrated parameter settings. 
 
-There have been plenty of ways to approach the problem of handwriting synthesis. 
+Fusion-based techniques take few input samples and combine
+them into new synthesized outputs. They differ from concatenation
+techniques in that they generate scripting units at the
+same level as their inputs; e.g., characters generate new characters.
+Shape-matching algorithms are necessary for fusionbased
+techniques to make sure that segments are properly
+aligned. The number of unique outputs is limited in fusionbased
+techniques as compared to that of other generation
+techniques.
 
+Model-based techniques capture the statistics of natural
+handwriting variations into models. Although model-based
+techniques are profoundly established in theory, they may
+often be challenging to implement due to the large number
+of samples they require. Models resulting from
+these techniques can also be utilized in recognition systems. 
 
 \section{Technical details}
 \subsection{Handwriting recognition}
 \subsection{Handwriting generation}
 
+Neural networks (NN) are know to do a good job in capturing complex, non-linear connections between input and output. A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior. Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs. This makes them applicable to tasks such as unsegmented connected handwriting recognition or speech recognition. 
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.3]{deep_predictor.pdf}
+\caption{\textbf{Deep recurrent neural network prediction architecture.} The circles represent network layers, the solid lines represent weighted connections
+and the dashed lines represent predictions. }
+\end{center}
+\end{figure}
+
+The Long short-term memory (LSTM) network, developed by Hochreiter \& Schmidhuber in 1997, is an artificial neural net structure that unlike traditional RNNs doesn't have the vanishing gradient problem (compare the section on training algorithms below). It works even when there are long delays, and it can handle signals that have a mix of low and high frequency components. LSTM RNN outperformed other methods in numerous applications such as language learning and connected handwriting recognition.
+
 \section{Experiments}
 \subsection{Data collection}
 \subsection{Handwriting recognition}
 \subsection{Handwriting generation}
-
+(copying my presentation scripts)
 The methods we will be using include handwriting recognition and Recurrent Neural Networks for sequence prediction. There are various languages involved. 
 
 The workflow looks like this: 
@@ -135,7 +188,12 @@ in rat hippocampal region CA3. {\it Journal of Neuroscience}
 {\bf 15}(7):5249-5262.
 }
 
+[4] Vincent, N., Seropian, A., Stamon, G.: Synthesis for handwriting
+analysis. Pattern Recognit. Lett. 26(3), 267–275 (2005)
 
+
+
+Below is not part of the report
 
 \section{Submission of papers to NIPS 2015}
 
