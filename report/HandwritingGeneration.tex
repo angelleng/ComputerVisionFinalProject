@@ -76,6 +76,13 @@ In this report we talk about using recurrent neural networks to generate data th
 
 \section{Introduction}
 
+Optical character recognition (OCR) is a widely used form of human-computer interaction that can be seen in society today. It is the conversion of images of typed or printed text into machine-encoded text often used for data entry, text-to-speech, and text mining. In this project we will be be implementing Intelligent Character Recognition (ICR) software that has the capability to take OCR to the next level and recognize handwritten text one character at a time. All done with the intention of using this recognition to construct a unique and accurate handwriting font tailored to input to grant out users the ability to add a personal touch to the banal style of standard electronic fonts.
+
+	This ‘real world’ input will be seamlessly fed to our software through the utilization of the “Wacom Intus Draw Tablet & Stylus” here on the University of Michigan campus. This tablet grants us the capability to track dynamic motion in real-time as our users input their handwriting, which we will use to construct a data set and recreate the handwriting to a digital picture. It is at this point that we will use handwriting recognition software to analyze the handwriting to generate a text file of matching text and feed these two correlated inputs to the rest of our software to begin creating a realistic font simply off a sample of our user’s handwriting. 
+
+	Creation of a realistic font is most efficiently done through the process of machine learning in which the computer trains a model from extensive input to make data-driven predictions or decisions rather than following strictly static program instructions. With the ability to process and store handwritten text by comparison between scanned text and learned text, our software will ultimately construct a font that is unique to the handwriting input to be used for future use on the system. A requisite for a font to resemble actual handwriting is that each letter must be displayed uniquely each time it is used, and it’s size and shape will depend on the values of surrounding letters. Conclusively, this project will provide us with useful experience in the practice of video processing, handwriting recognition, and machine learning using video as input to create a unique tool to use in a vast variety of circumstances.
+	%insert picture of method
+	
 % introduce the problem you want to solve, expain why it is important to solve it; and indicate the method you used to solve it. add a concept figure showing the overall idea behind the method you are presenting. 
 \section{Previous work}
 \subsection{Handwriting recognition} % Review of previous work (i.e. previous methods that have explored a similar problem)
@@ -107,6 +114,13 @@ of samples they require. Models resulting from
 these techniques can also be utilized in recognition systems. 
 
 \section{Technical details}
+\subsection{Data Collection}
+
+The first step to our software process is for our user to input their handwriting. We need to process this input in real time in order to gather sufficient data of where the pen tip is at all times while it is writing and an indication of when it is picked up. This will ensure that with the help of our trained machine, the font we generate is realistic in the sense of all inconsistencies that normal handwriting possesses. Therefore we set out to obtain ∆x and ∆y of the pen-tip corresponding to its timestamp and when the pen is lifted so that the next ∆x & ∆y pair that you will see will be the initial point of a new stroke. 
+
+To capture the user’s handwriting in real time we chose to utilize the accessible and accurate “Wacom Intus Draw Tablet & Stylus” available on North Campus, with Adobe Photoshop. With a blank canvas open and pen selected, the user uses the stylus to write out a phrase and with Apple QuickTime Player’s built in screen capture we obtain a video of the handwriting phrase frame by frame as it is written. The input to the initial stage of our software has thus been obtained. 
+
+As mentioned, this video input needs to be processed and converted to a formatted data file. To accomplish this we utilized the video processing capabilities of Matlab’s videoReader functionality. Employing frame by frame comparisons to detect pixel discrepancies, a competently accurate representation of the handwriting is exported to an excel document in all necessary variables. With this data in its appropriate format, the last frame of the video is used as input to another portion of our software to recognize the handwriting and construct a text file to pair with the output of data collection.
 \subsection{Handwriting recognition}
 \subsection{Handwriting generation}
 
@@ -125,6 +139,13 @@ The Long short-term memory (LSTM) network, developed by Hochreiter \& Schmidhube
 
 \section{Experiments}
 \subsection{Data collection}
+
+As discussed in Section 3.1, the input to be translated to collected data is in video format and is processed by detecting pixel discrepancies between each frame. An example of detected pixel discrepancies is shown below where detected discrepancies between a frame range were highlighted to show accuracy in the construction of the letter ‘H.’ Note that the cursor does not interfere with detection due to disregard of pixels that have been accurately identified as pixels changed due to cursor for every iteration/frame.
+%insert picture of 'detection data'
+At the completion of the video processing there should be two accessible outputs for use later in software. The first is the last frame of the handwriting input and the second is the formatted data. Examples of these are shown below.
+%insert picture of 'Hello World'
+%insert picture of 'Collected Data'
+
 \subsection{Handwriting recognition}
 \subsection{Handwriting generation}
 (copying my presentation scripts)
