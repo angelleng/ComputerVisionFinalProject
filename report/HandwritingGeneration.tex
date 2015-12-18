@@ -4,7 +4,15 @@
 \usepackage{url}
 \usepackage{graphicx}
 %\documentstyle[nips14submit_09,times,art10]{article} % For LaTeX 2.09
+\usepackage{color}
+\usepackage{amssymb,amsmath,graphicx}
+\usepackage{amsfonts}
+\usepackage{url}
 
+
+
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\flabel}[1]{\label{fig:#1}}
 
 \newcommand{\figdir}{}
 \newcommand{\capt}[2]{\caption[#1]{\textbf{#1}#2}}
@@ -126,16 +134,52 @@ As mentioned, this video input needs to be processed and converted to a formatte
 
 Neural networks (NN) are know to do a good job in capturing complex, non-linear connections between input and output. A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior. Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs. This makes them applicable to tasks such as unsegmented connected handwriting recognition or speech recognition. 
 
-
 \begin{figure}
 \begin{center}
 \includegraphics[scale = 0.3]{deep_predictor.pdf}
 \caption{\textbf{Deep recurrent neural network prediction architecture.} The circles represent network layers, the solid lines represent weighted connections
 and the dashed lines represent predictions. }
+\flabel{deep_predictor}
 \end{center}
 \end{figure}
 
+In \fref{deep_predictor}, an input vector sequence $\mathbf{x}=(x_1, \ldots, x_T)$ is passed long a weighted connections to a stack of $N$ recurrently interconnected hidden layers to compute the first hidden vector sequences $\mathbf{h}^n = (h^n_1,\ldots,h^n_T)$, and then the output vector sequence $\mathbf{y} = (y_1, \ldots, y_T)$
+
+Each output vector $y_t$ is used to parameterise a predictive distribution $\Pr(x_{t+1}|y_t)$ over the possible next inputs $x_{t+1}$.
+
+The first element $x_1$ of every input sequence is always a null vector whose entries are all zero; the network therefore emits a prediction for $x_2$, the first real input, with no prior information.
+The network is `deep' in both space and time, in the sense that every piece of information passing either vertically or horizontally through the computation graph will be acted on by multiple successive weight matrices and nonlinearities.
+
+How each hidden node is calculated can be shown in the following formula: 
+\begin{align}
+\label{eq:pred_hidden}
+h^1_t &= \mathcal{H}\left(W_{i h^1} x_t + W_{h^{1}h^{1}} h^1_{t-1} + b_{h}^1 \right)\\
+h^n_t &= \mathcal{H}\left(W_{i h^n} x_t + W_{h^{n-1}h^{n}} h^{n-1}_t + W_{h^{n}h^{n}} h^n_{t-1} + b_h^n \right)
+\end{align} 
+where the $W$ terms denote weight matrices (e.g.\ $W_{i h^n}$ is the weight matrix connecting the inputs to the $n^{th}$ hidden layer, $W_{h^{1}h^{1}}$ is the recurrent connection at the first hidden layer, and so on), the $b$ terms denote bias vectors (e.g.\ $b_o$ is output bias vector) and $\mathcal{H}$ is the hidden layer function. 
+
+Given the hidden sequences, the output sequence can be calculated: 
+\begin{align}
+\label{eq:pred_output}
+\hat{y}_t &= b_o + \sum_{n=1}^N{W_{h^n y} h^n_t}\\
+y_t &= \mathcal{Y}(\hat{y}_t)	
+\end{align}
+
 The Long short-term memory (LSTM) network, developed by Hochreiter \& Schmidhuber in 1997, is an artificial neural net structure that unlike traditional RNNs doesn't have the vanishing gradient problem (compare the section on training algorithms below). It works even when there are long delays, and it can handle signals that have a mix of low and high frequency components. LSTM RNN outperformed other methods in numerous applications such as language learning and connected handwriting recognition.
+
+
+That is how the network is built. 
+
+In this project, the data are the sequence 
+
+To enable the network to make prediction about a sequence, the output sequence is used as a parameter of the probability distribution $\Pr(x_{t+1}|y_t)$ of the next input. The form of distribution should be selected carefully to give high performing prediction. 
+
+The probability given by the network to the input sequence x is
+\begin{equation}
+\Pr(\mathbf{x}) = \prod_{t=1}^T{\Pr(x_{t+1}|y_t)}
+\end{equation}
+
+
 
 \section{Experiments}
 \subsection{Data collection}
@@ -150,6 +194,8 @@ At the completion of the video processing there should be two accessible outputs
 \subsection{Handwriting generation}
 (copying my presentation scripts)
 The methods we will be using include handwriting recognition and Recurrent Neural Networks for sequence prediction. There are various languages involved. 
+
+
 
 The workflow looks like this: 
 First we collected trace of pen stroke using a tracking pad and screencast. Then we used the handwriting recognition technology to generate the contents of handwriting. With the data collected we trained a Recurrent Neural Network, which is later used for handwriting generation. 
