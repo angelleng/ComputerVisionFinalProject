@@ -90,7 +90,12 @@ This ‘real world’ input will be seamlessly fed to our software through the u
 
 Creation of a realistic font is most efficiently done through the process of machine learning in which the computer trains a model from extensive input to make data-driven predictions or decisions rather than following strictly static program instructions. With the ability to process and store handwritten text by comparison between scanned text and learned text, our software will ultimately construct a font that is unique to the handwriting input to be used for future use on the system. A requisite for a font to resemble actual handwriting is that each letter must be displayed uniquely each time it is used, and it’s size and shape will depend on the values of surrounding letters. Conclusively, this project will provide us with useful experience in the practice of video processing, handwriting recognition, and machine learning using video as input to create a unique tool to use in a vast variety of circumstances.
 	%insert picture of method
-	
+\begin{center}
+\includegraphics[scale = 0.5]{Method.png}
+\end{center}
+
+
+
 % introduce the problem you want to solve, expain why it is important to solve it; and indicate the method you used to solve it. add a concept figure showing the overall idea behind the method you are presenting. 
 \section{Previous work}
 \subsection{Handwriting recognition} % Review of previous work (i.e. previous methods that have explored a similar problem)
@@ -204,42 +209,35 @@ At the completion of the video processing there should be two accessible outputs
 
 \subsection{Handwriting recognition}
 \subsection{Handwriting generation}
-(copying my presentation scripts)
-The methods we will be using include handwriting recognition and Recurrent Neural Networks for sequence prediction. There are various languages involved. 
-
-
-
-The workflow looks like this: 
 First we collected trace of pen stroke using a tracking pad and screencast. Then we used the handwriting recognition technology to generate the contents of handwriting. With the data collected we trained a Recurrent Neural Network, which is later used for handwriting generation. 
-
 
 After we collected and formatted the data, we use the data to train a recurrent neural network. The idea of RNN is to encode sequential correlation of ordered data points, in our case, the pen stroke data introduced earlier. The input and output variable will be the same sequence, excepted they are offsetted by one timestamp to make prediction possible. By training the recurrent neural network we are basically telling the program how to write. 
 
+Using the well-implemented c++ library rnnlib, we were able to train an RNN that takes in the sequential data of the pen stroke, which is then used for making predictions about handwriting, i.e. handwriting generation. The training of the network took longer time than we thought. Each epoch is taking 30 hours or so, and we only managed to run 7 epochs. The training error was still dropping when we stop the training process early because of time issues, so the network is not yet well trained. Nevertheless it’s giving us eligible results. 
 
-Instead of implementing the algorithms ourselves, we are using an off-the-shelf library we found online, rnnlib, which is written in C++. 
-
-
-The architecture looks like this: 
-The white dots are the input sequence, the black dots are the hidden layers, which are the essential part of any neural network architecture to store complex non-linear correlation. The grey dots are the output. 
-
-
-The training of the network took longer time than we thought. Each epoch is taking 30 hours or so, and we only managed to run 7 epochs. So the network is not yet well trained. Nevertheless it’s giving us eligible results. Here are two examples: 
-
+Here are two examples: 
 
 Hello, it’s me: 
-I think it’s fair to say it’s doing its job. 
-If we look carefully, we can see the ‘e’ at the end was not finished. That is because the end of stroke flag appeared too soon. The network predicted 
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.5]{hello.png}
+\end{center}
+\flabel{hello}
+\caption{"hello, it's me"}
+\end{figure}
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale = 0.5]{father.png}
+\end{center}
+\flabel{father}
+\caption{"I am your father"}
+\end{figure}
 
-And I am your father.  
-It is not so ideal, but at least we can tell the letters apart. 
-
-
-
-
+\fref{hello}, which says "hello, it's me", is very legible, and looks like a sensible handwriting version of the text. Looking closely, we can see the ‘e’ at the end was not finished. That is because the end of stroke flag appeared too soon. In another case where the algorithm did not do so well, \fref{father} is less handwriting-like, and less legible.  
 
 \section{Conclusions}
-Something about the power of rnn. Why it captures the patterns of penstroke. 
+In this project, Long Short-Term Memory recurrent neural networks have displayed a strong ability in making prediction about human handwriting sequence. Though not reaching its full potential, the RNN we trained is able to generate convicing handwriting data. 
 
 There are a few ways we can improve the project. 
 To give the training a little more time

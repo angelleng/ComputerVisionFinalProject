@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1450437796 "HandwritingGeneration.tex" "HandwritingGeneration.pdf" "HandwritingGeneration" 1450437799
+["pdflatex"] 1450439850 "HandwritingGeneration.tex" "HandwritingGeneration.pdf" "HandwritingGeneration" 1450439854
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -108,15 +108,18 @@
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1401025990 3832012 904d82bdcc8abf2b1cd296990b82553b ""
   "/usr/local/texlive/2014/texmf.cnf" 1401025936 577 a59edbde8d3a8c549d0eeaab1739e2ff ""
   "Collected_Data.png" 1450437264 77292 c5125f680ba87f3536cf93b6f945b950 ""
-  "HandwritingGeneration.aux" 1450437799 4596 5a4bc9cb72bdb7d6008afba4f593f783 ""
-  "HandwritingGeneration.out" 1450437799 1789 d51738062919368b0570ca3232a0e833 ""
-  "HandwritingGeneration.tex" 1450437793 34052 2701226ea3b6235c8a42a922b8a9ee98 ""
+  "HandwritingGeneration.aux" 1450439853 4946 733174e14e1015f090065950f325298c ""
+  "HandwritingGeneration.out" 1450439853 1789 d51738062919368b0570ca3232a0e833 ""
+  "HandwritingGeneration.tex" 1450439845 34356 563fb4afb96a4463961e3a830a38cfeb ""
   "Hello_world.png" 1450437264 44586 5282a7bcc67e6e68f4775cfd0a56f1ba ""
+  "Method.png" 1450437264 69920 e0d45498e63e4295849476ac0737f49e ""
   "deep_predictor.pdf" 1450430150 32750 25535658f14423e1a686336797745a2b ""
   "detection_data.png" 1450437264 22972 c33f4312104f77a6ac0927e858174284 ""
+  "father.png" 1450438564 26316 ddc7695e3060165c00421cd4303ff1a9 ""
+  "hello.png" 1450438465 27518 3c750ddc359a18bf0b995adbc84e321b ""
   "nips15submit_e.sty" 1450316399 8804 cee4cb76ce9b6e282137062c87041468 ""
   (generated)
   "HandwritingGeneration.log"
-  "HandwritingGeneration.out"
-  "HandwritingGeneration.aux"
   "HandwritingGeneration.pdf"
+  "HandwritingGeneration.aux"
+  "HandwritingGeneration.out"
